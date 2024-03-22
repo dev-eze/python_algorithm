@@ -41,3 +41,21 @@ print("나는 지금 {food1}, {food2}를 주문했다.".format(food1="호두과�
 str_sound="야옹"
 str_date=20240322
 print(f"고양이는 {str_sound} 울어요. 오늘은 {str_date}.")
+
+## 탈출문자
+print("1줄\n2줄")
+print('''
+안녕하세요
+문자열 연습중이예요
+''')
+
+## \\ => \
+print("역슬래쉬 출력 \\")
+print("문자열 '문자열'")
+print("문자열 \"문자열\"")
+## \r : 커서를 맨 앞으로 이동
+print("abc\r알파벳")
+## \b : 백스페이스(한 글자 삭제)
+print("가나다다\b")
+## \t : tab
+print("red\tapple")
