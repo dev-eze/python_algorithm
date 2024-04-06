@@ -32,3 +32,7 @@ print(mix_list)
 num_list.extend(mix_list) ## 리스트 확장
 print(num_list)
 
+## 사전 (key : value), key 중복 x
+cabinet = {3:"유재석", 100:"하하"}
+print(cabinet[3])
+print(cabinet[100])
