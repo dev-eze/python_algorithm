@@ -24,7 +24,26 @@ def getCurrentLocation():
             continue
         else:
             x, y = nx, ny
-
     return(x, y)
 
 print(getCurrentLocation())
+
+# 시각 문제
+'''
+00시 00분 00초부터 n시 59분 59초까지 3이 하나라도 포함되는 모든 경우의 수
+입력: 5
+출력: 11475
+제한: 0 <= n <= 23
+'''
+def getThreeCount():
+    n = 5
+    count = 0
+    # 시 분 초
+    minute_second = 60
+    for i in range(n+1 ):
+        for j in range(minute_second):
+            for k in range(minute_second):
+                if '3' in str(i) + str(j) + str(k):
+                    count += 1
+    return count
+print(getThreeCount())
