@@ -72,7 +72,6 @@ def getKnightCount():
     for i in directions:
         nx = x + i[0]
         ny = y + i[1]
-        print("nx", nx, "ny", ny)
         if nx < 1 or ny < 1 or nx > 8 or ny > 8:
             print("범위 벗어남")
             continue
@@ -82,5 +81,33 @@ def getKnightCount():
 print(getKnightCount())
 
 
+# 문자열 재정렬
+'''
+    알파벳 대문자와 숫자로만 구성된 문자열이 입력으로 주어짐
+    알파벳 오름차순으로 정렬 + 모든 숫자를 합한 값을 이어서 출력
+    
+    입력: K1KA5CB7
+    출력: ABCKK13
+    
+    입력: AJKDLSI412K4JSJ9D
+    출력: ADDIJJJKKLSS20
+'''
 
+def getReorderString():
+    input_data = "K1KA5CB7"
+    result = []
+    number_sum = 0
+    dataList = list(input_data)
 
+    for i in dataList:
+       if i.isalpha():
+            result.append(i)
+       else:
+           number_sum += int(i)
+
+    result.sort()
+
+    if number_sum != 0:
+        result.append(str(number_sum))
+    return "".join(result)
+print(getReorderString())
