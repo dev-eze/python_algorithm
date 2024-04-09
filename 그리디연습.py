@@ -62,3 +62,21 @@ def getMax(s):
     return result
 print(getMax("0123"))
 
+# 모험가 길드
+# 입력:n = 5, 23122 출력:2
+def getmaxgroup():
+    n = 5
+    group = [2, 3, 1, 2, 2]
+    group.sort() # 1 2 2 2 3
+
+    max_group = 0
+    member = 0
+    for i in range(n):
+        member += 1
+        if member >= group[i]:
+            max_group += 1
+            member = 0 # 그룹 달성후 멤버 수 초기화
+    return max_group
+print(getmaxgroup())
+
+
