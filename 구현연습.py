@@ -47,3 +47,40 @@ def getThreeCount():
                     count += 1
     return count
 print(getThreeCount())
+
+# 왕실의 나이트
+'''
+8x8 좌표 평면, 나이트가 이동할 수 있는 경우의 수
+- 수평으로 두 칸 이동한 뒤에 수직으로 한 칸 이동
+- 수직으로 두칸 이동한 뒤에 수평으로 한 칸 이동
+- 행 1~8, 열 a~h
+입력: a1
+출력: 2
+입력: c2
+출력: 6
+'''
+def getKnightCount():
+    # 8가지 이동 가능한 방향에대한 벡터 정의
+    directions = [(-2, -1),  (-2, 1), (2, -1), (2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2)]
+    char_to_num = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8}
+    input_data = "c2" # 행 1 열 a
+    x = int(input_data[1])
+    y = int(char_to_num[input_data[0]])
+    print(x, y)
+    result = 0
+
+    for i in directions:
+        nx = x + i[0]
+        ny = y + i[1]
+        print("nx", nx, "ny", ny)
+        if nx < 1 or ny < 1 or nx > 8 or ny > 8:
+            print("범위 벗어남")
+            continue
+        elif nx >= 1 and ny >= 1 and nx <= 8 and ny <= 8: # 체스판 범주에 있다면 카운팅
+            result += 1
+    return result
+print(getKnightCount())
+
+
+
+
