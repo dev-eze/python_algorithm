@@ -28,7 +28,7 @@
 import heapq
 
 # 오름차순 힙 정렬(Heap Sort)
-def heapsort(iterable):
+def heapsort_asc(iterable):
     h = []
     result = []
     # 모든 원소를 차례대로 힙에 삽입
@@ -41,7 +41,7 @@ def heapsort(iterable):
         # heapq.heappop은 Python의 heapq 모듈에 있는 함수로, 힙 자료구조에서 가장 작은 원소를 제거하고 그 원소를 반환.
     return result
 
-print(heapsort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0]))
+print(heapsort_asc([1, 3, 5, 7, 9, 2, 4, 6, 8, 0]))
 # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 '''
@@ -56,3 +56,21 @@ for i in range(len(h)): 반복문을 통해 힙 h에 삽입된 모든 원소를 
 heapq.heappop(h)를 사용하여 힙에서 가장 작은 원소를 꺼내 result 리스트에 추가.  
 모든 원소를 꺼내서 result에 저장한 후, result를 반환. 이 result는 입력 리스트의 오름차순 정렬된 상태로 출력됨.
 '''
+
+# 기본은 오름차순 정렬이나 내림차순 정렬시
+# heapq.heappush(h, -value)와 -heapq.heappop(h)를 사용하면 됨.
+def heapsort_desc(iterable):
+    h = []
+    result = []
+    # 모든 원소를 차례대로 힙에 삽입
+    for value in iterable:
+        heapq.heappush(h, -value)
+        #  heapq.heappush() 이 함수를 호출하면, 주어진 원소가 힙 자료구조에 추가되며, 힙의 속성(최소 힙의 경우 부모 노드가 자식 노드보다 항상 작거나 같다는 속성)이 유지되도록 원소가 적절한 위치에 삽입
+    # 힘에 삽입된 모든 원소를 차례대로 꺼내어 담기
+    for i in range(len(h)):
+        result.append(-heapq.heappop(h))
+        # heapq.heappop은 Python의 heapq 모듈에 있는 함수로, 힙 자료구조에서 가장 작은 원소를 제거하고 그 원소를 반환.
+    return result
+
+print(heapsort_desc([1, 3, 5, 7, 9, 2, 4, 6, 8, 0]))
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
