@@ -41,7 +41,11 @@ import sys
 input = sys.stdin.readline
 INF = int(1e9) # 무한을 의미하는 값으로 10억을 설정
 
-n, m = map(int, input().split()) # 노드의 개수, 간선의 개수
+try:
+    n, m = map(int, input().split())  # 노드의 개수, 간선의 개수
+except KeyboardInterrupt:
+    print("프로그램이 사용자에 의해 중단되었습니다.")
+
 start = int(input()) # 시작 노드 번호 입력
 # 각 노드에 연결되어 있는 노드에 대한 정보를 담는 리스트 만들기
 graph = [[] for i in range(n+1)]
@@ -137,26 +141,3 @@ for i in range(1, n+1):
 힙(Heap)                 0(logN)             0(logN)
 
 '''
-
-import heapq
-
-# 오름차순 힙 정렬(Heap Sort)
-def heapsort(iterable):
-    h = []
-    result = []
-    # 모든 원소를 차례대로 힙에 삽입
-    for value in iterable:
-        heapq.heappush(h, value)
-    # 힘에 삽입된 모든 원소를 차례대로 꺼내어 담기
-    for i in range(len(h)):
-        result.append(heapq.heappop(h))
-    return result
-
-print(heapsort([1, 3, 5, 7, 9, 2, 4, 6, 8, 0]))
-# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-
-
-
-
-
