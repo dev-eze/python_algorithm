@@ -142,7 +142,7 @@ def replace_roman_to_int2(roman_string):
             int_result.append(romans_dict[roman_string[i]])
             i += 1
         else:
-            i += 1
+            pass
 
     return sum(int_result)
 

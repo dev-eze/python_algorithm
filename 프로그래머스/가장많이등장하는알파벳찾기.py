@@ -24,7 +24,6 @@ def solution(my_str):
     #max_freq = max(counter.values())
     #max_freq2 = counter.most_common()[0][1]
     result = [key for key, freq in sorted(counter.most_common(), key=lambda x: x[1], reverse=True) if freq == counter.most_common(1)[0][1]]
-    result.sort()
     #return ''.join(result)
     return ''.join(sorted(result))
 
@@ -32,3 +31,12 @@ print(solution(my_str1))
 print(solution(my_str2))
 print(solution(my_str3))
 
+
+def solution2(str):
+    counter = Counter(str)
+    result = [key for key, freq in sorted(counter.most_common(), key=lambda x:x[1], reverse=True) if freq == counter.most_common(1)[0][1]]
+    return ''.join(sorted(result))
+
+print(solution2(my_str1))
+print(solution2(my_str2))
+print(solution2(my_str3))
