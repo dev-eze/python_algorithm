@@ -38,10 +38,4 @@ def getminimum(start_node):
                 heapq.heappush(q, (cost, i[0]))
 
 
-getminimum(start_node)
 
-for i in range(1, n+1):
-    if distance[i] == INF:
-        print("inf")
-    else
-        print(distance[i])
